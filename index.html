@@ -1,101 +1,877 @@
-from flask import Flask, render_template, jsonify, request
-import json
-from datetime import datetime
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Rijowan Khan | DevOps Engineer</title>
 
-app = Flask(__name__)
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo">RK<span class="dot">.</span></a>
 
-# Sample data - replace with your actual data
-data = {
-    "name": "MD Rijowan Khan",
-    "title": "DevOps Engineer & AI Researcher",
-    "github": "https://github.com/yourusername",
-    "email": "rijowan@example.com",
-    "phone": "+86 123 4567 890",
-    "location": "Beijing, China",
-    "linkedin": "https://linkedin.com/in/yourusername",
-    "tagline": "Building scalable systems with cutting-edge technology",
-    "current_year": datetime.now().year,
-    
-    "education": {
-        "degree": "Bachelor of Science in Computer Science",
-        "duration": "2021 - 2025",
-        "university": "China University of Petroleum Beijing",
-        "gpa": "3.8/4.0",
-        "coursework": [
-            "Cloud Computing", "Machine Learning", "DevOps Practices",
-            "Distributed Systems", "Data Structures & Algorithms"
-        ]
-    },
-    
-    "extracurricular": [
-        {"role": "Technical Lead", "organization": "CUPB Coding Club", "duration": "2022-Present", "icon": "code"},
-        {"role": "Volunteer Tutor", "organization": "Computer Science Department", "duration": "2023-Present", "icon": "chalkboard-teacher"}
-    ],
-    
-    "experience": [
-        {
-            "title": "DevOps Intern",
-            "company": "Tech Solutions Inc.",
-            "type": "Internship",
-            "duration": "Jun 2023 - Sep 2023",
-            "responsibilities": [
-                "Implemented CI/CD pipelines using Jenkins",
-                "Containerized applications using Docker",
-                "Deployed microservices on Kubernetes"
-            ]
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://github.com/GitRijowan" target="_blank" class="hire-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="greeting">Hello, I'm</span>
+                    <h1 class="hero-title gradient-text">MD Rijowan Khan</h1>
+                    <h2 class="hero-subtitle">DevOps Engineer & AI Researcher</h2>
+                    
+                    <p class="hero-description">
+                        Computer Science student at China University of Petroleum Beijing,
+                        specializing in DevOps, Cloud Computing, and Artificial Intelligence.
+                        Building scalable systems with cutting-edge technology.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Hire Me
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="glow-orb"></div>
+                    <div class="code-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dot"></div>
+                            <div class="terminal-dot"></div>
+                            <div class="terminal-dot"></div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <span class="code-keyword">const</span> 
+                                <span class="code-string">name</span> = 
+                                <span class="code-string">"MD Rijowan Khan"</span>;
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <span class="code-keyword">const</span> 
+                                <span class="code-string">role</span> = 
+                                <span class="code-string">"DevOps Engineer"</span>;
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <span class="code-keyword">const</span> 
+                                <span class="code-string">skills</span> = 
+                                <span class="code-string">["Docker", "Cloud", "AI", "Python"]</span>;
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                <span class="code-comment">// Building the future, one line at a time...</span>
+                                <span class="cursor"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="floating-element floating-1">
+                        <i class="fas fa-server"></i> DevOps
+                    </div>
+                    <div class="floating-element floating-2">
+                        <i class="fas fa-cloud"></i> Cloud
+                    </div>
+                    <div class="floating-element floating-3">
+                        <i class="fas fa-brain"></i> AI
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="stat-number" id="projectCount">3</h3>
+                    <p class="stat-label">Projects</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="stat-number" id="experienceYears">3+</h3>
+                    <p class="stat-label">Years Experience</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="stat-number" id="publicationCount">2</h3>
+                    <p class="stat-label">Publications</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="stat-number" id="languagesCount">4</h3>
+                    <p class="stat-label">Languages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Education -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">About Me</h3>
+                <h2 class="section-title gradient-text">Education & Background</h2>
+                <p class="section-description">
+                    Pursuing excellence in Computer Science with focus on modern technologies
+                </p>
+            </div>
+
+            <div class="education-card">
+                <div class="education-header">
+                    <h3>BSC - Computer Science and Technology</h3>
+                    <span class="duration">Sept 2022 – Jul 2026</span>
+                </div>
+                
+                <div class="education-body">
+                    <h4>China University of Petroleum Beijing</h4>
+                    <p class="gpa"><strong>GPA:</strong> 84%</p>
+                    
+                    <div class="coursework">
+                        <h5>Relevant Coursework:</h5>
+                        <div class="skills-grid">
+                            <span class="skill-tag">Cloud Computing</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">DevOps Practices</span>
+                            <span class="skill-tag">Distributed Systems</span>
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extracurricular Activities -->
+            <div class="section-header" style="margin-top: 4rem;">
+                <h3 class="section-subtitle">Beyond Academics</h3>
+                <h2 class="section-title gradient-text">Extracurricular Activities</h2>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Co-Founder</h4>
+                        <p>Chalkaladathkha Youth Community</p>
+                        <small>Mar 2017</small>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Vice Captain</h4>
+                        <p>Bengal Bangers Football Club, Beijing</p>
+                        <small>Nov 2024 – Present</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section" style="background: rgba(10, 10, 15, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Career Journey</h3>
+                <h2 class="section-title gradient-text">Work Experience</h2>
+            </div>
+
+            <div class="timeline full-experience">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">2025.09 - Present</span>
+                    <h3 class="timeline-title">Junior DevOps Engineer</h3>
+                    <p class="timeline-company">SonetCraft (LLC), USA - Remote</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Assisting senior engineers with deployments, cloud resource management, and operational tasks</li>
+                            <li>Managing containerized environments (Docker) and ensuring stable development setups</li>
+                            <li>Researching model pricing, performance, and API options for client decisions</li>
+                            <li>Handling project management tasks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">2022.06 - 2022.09</span>
+                    <h3 class="timeline-title">DevOps Intern</h3>
+                    <p class="timeline-company">SonetCraft (LLC), USA - Remote</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Learned basic DevOps operations under senior engineer guidance</li>
+                            <li>Assisted with environment setup and cloud-related activities</li>
+                            <li>Researched model pricing and API options</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">2020.07 - 2022.07</span>
+                    <h3 class="timeline-title">Computer Lab Assistant</h3>
+                    <p class="timeline-company">America Bangladesh University, Bangladesh - On-site</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Assisted faculty and students in laboratory sessions</li>
+                            <li>Arranged required software and maintained lab systems</li>
+                            <li>Supported academic workshops and technical sessions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">My Work</h3>
+                <h2 class="section-title gradient-text">Featured Projects</h2>
+                <p class="section-description">
+                    Building solutions that solve real-world problems
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="project-tag">AI/ML</span>
+                            <span class="project-tag">Explainable AI</span>
+                        </div>
+                        <h3 class="project-title">Credit Card Fraud Detection with Explainable AI</h3>
+                        <p class="project-description">
+                            Interactive Streamlit app for real-time fraud detection using Random Forest classifier with SHAP-based explanations, secure CSV uploads, and automated reporting.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span class="tech-icon"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon"><i class="fas fa-chart-line"></i></span>
+                            <span class="tech-icon"><i class="fas fa-shield-alt"></i></span>
+                        </div>
+                        <a href="https://github.com/GitRijowan" target="_blank" class="project-link">
+                            View Code <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="project-tag">Blockchain</span>
+                            <span class="project-tag">Web3</span>
+                        </div>
+                        <h3 class="project-title">Decentralized Voice Authentication System with Blockchain</h3>
+                        <p class="project-description">
+                            Blockchain-based voice authentication system combining voice biometrics with Polygon smart contracts. Real-time transaction monitoring and responsive web interface.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span class="tech-icon"><i class="fab fa-ethereum"></i></span>
+                            <span class="tech-icon"><i class="fab fa-js"></i></span>
+                            <span class="tech-icon"><i class="fas fa-microphone"></i></span>
+                        </div>
+                        <a href="https://github.com/GitRijowan" target="_blank" class="project-link">
+                            View Code <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="project-tag">Web Dev</span>
+                            <span class="project-tag">Tools</span>
+                        </div>
+                        <h3 class="project-title">Domain Availability Checker</h3>
+                        <p class="project-description">
+                            Fast domain availability checker supporting hundreds of TLDs with RDAP, Redis caching, async lookups, and dynamic IANA updates.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span class="tech-icon"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon"><i class="fas fa-bolt"></i></span>
+                            <span class="tech-icon"><i class="fas fa-database"></i></span>
+                        </div>
+                        <a href="https://github.com/GitRijowan" target="_blank" class="project-link">
+                            View Code <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section" style="background: rgba(10, 10, 15, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Expertise</h3>
+                <h2 class="section-title gradient-text">Technical & Professional Skills</h2>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Programming -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-title">Programming</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fab fa-python"></i> Python
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="85"></div>
+                                </div>
+                                <div class="progress-text">85%</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fas fa-database"></i> SQL
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="75"></div>
+                                </div>
+                                <div class="progress-text">75%</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fab fa-ethereum"></i> Solidity
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="45"></div>
+                                </div>
+                                <div class="progress-text">45%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Cloud -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="skill-title">DevOps & Cloud</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fab fa-docker"></i> Docker
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="80"></div>
+                                </div>
+                                <div class="progress-text">80%</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fas fa-cloud"></i> Cloud Management
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="50"></div>
+                                </div>
+                                <div class="progress-text">50%</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fab fa-git-alt"></i> Git
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="55"></div>
+                                </div>
+                                <div class="progress-text">55%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Data Science -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="skill-title">AI & Data Science</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fas fa-eye"></i> Explainable AI
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="75"></div>
+                                </div>
+                                <div class="progress-text">75%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Skills -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="skill-title">Professional Skills</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fas fa-file-alt"></i> Research & Writing
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="85"></div>
+                                </div>
+                                <div class="progress-text">85%</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fas fa-users"></i> Team Coordination
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="90"></div>
+                                </div>
+                                <div class="progress-text">90%</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">
+                                <i class="fas fa-calendar-alt"></i> Event Management
+                            </span>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-level="95"></div>
+                                </div>
+                                <div class="progress-text">95%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Research</h3>
+                <h2 class="section-title gradient-text">Publications</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="project-tag">Accepted</span>
+                            <span class="project-tag">IEEE</span>
+                        </div>
+                        <h3 class="project-title">Architectural Trade-offs in Transformer Models: A Controlled Grid Search and Complexity Analysis</h3>
+                        <p class="project-description">
+                            <strong>Authors:</strong> M. N. Hossain, M. R. Khan, M. Rahman, and I. A. H. Prianka<br>
+                            <strong>Conference:</strong> IEEE 7th International Conference on Computing, Communication and Automation<br>
+                            <strong>Year:</strong> 2025
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="project-tag">In Processing</span>
+                            <span class="project-tag">Research</span>
+                        </div>
+                        <h3 class="project-title">AI-Driven Dynamic Power-Aware Adaptive Scheduling for Cloud Computing</h3>
+                        <p class="project-description">
+                            <strong>Author:</strong> M. R. Khan<br>
+                            <strong>Status:</strong> In Processing<br>
+                            <strong>Year:</strong> 2025
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="section-header" style="margin-top: 4rem;">
+                <h3 class="section-subtitle">Recognition</h3>
+                <h2 class="section-title gradient-text">Achievements & Awards</h2>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>University Scholarship Type-B</h4>
+                        <p>China University of Petroleum (Beijing) 2022 – Present</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Champion, BCSS Essay Writing Competition</h4>
+                        <p>2019</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Champion, Inter-School Chess Tournament</h4>
+                        <p>2018</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Top 3 Team, Cultural Festival Dance</h4>
+                        <p>China University of Petroleum (Beijing) 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Get In Touch</h3>
+                <h2 class="section-title gradient-text">Contact Me</h2>
+                <p class="section-description">
+                    Let's discuss opportunities or collaborate on exciting projects
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>rijowan@qq.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+86 13141473271</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Beijing, China</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Connect</h3>
+                            <div class="social-links">
+                                <a href="https://github.com/GitRijowan" target="_blank" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/rijowan-khan-57720a231/" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="mailto:rijowan@qq.com" class="social-link">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input" id="message" placeholder="Your Message" required rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo gradient-text">MD Rijowan Khan</div>
+                    <p class="footer-tagline">Building Scalable Systems with AI & Cloud</p>
+                    <div class="social-links">
+                        <a href="https://github.com/GitRijowan" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rijowan-khan-57720a231/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:rijowan@qq.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                        <li><a href="#publications"><i class="fas fa-chevron-right"></i> Publications</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="https://github.com/GitRijowan" target="_blank"><i class="fas fa-chevron-right"></i> GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MD Rijowan Khan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.innerHTML = navLinks.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
         }
-    ],
-    
-    "projects": [
-        {
-            "title": "Cloud Deployment Platform",
-            "category": "DevOps",
-            "description": "Automated cloud deployment platform with CI/CD",
-            "tools": ["Docker", "Kubernetes", "AWS", "Terraform"],
-            "github": "#",
-            "demo": "#"
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // ScrollSpy Navigation
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Navbar scroll effect
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Update active nav link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        const level = bar.getAttribute('data-level');
+                        bar.style.width = `${level}%`;
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe all skill categories
+        document.querySelectorAll('.skill-category').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                const messageDiv = document.getElementById('formMessage');
+
+                // Show loading state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+
+                // Simulate API call
+                setTimeout(() => {
+                    // Success message
+                    messageDiv.innerHTML = 'Message sent successfully! I\'ll get back to you soon.';
+                    messageDiv.className = 'form-message success';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
         }
-    ],
-    
-    "skills": {
-        "Programming": [
-            {"name": "Python", "level": 90, "icon": "python"},
-            {"name": "Java", "level": 85, "icon": "java"}
-        ],
-        "DevOps & Cloud": [
-            {"name": "Docker", "level": 85, "icon": "docker"},
-            {"name": "Kubernetes", "level": 80, "icon": "kubernetes"}
-        ]
-    },
-    
-    "publications": [
-        {
-            "title": "AI-Based Cloud Optimization",
-            "authors": "Rijowan Khan et al.",
-            "conference": "International Conference on AI",
-            "status": "published"
-        }
-    ],
-    
-    "achievements": [
-        {"title": "Best Project Award", "description": "University Hackathon 2023", "icon": "trophy"},
-        {"title": "Academic Excellence", "description": "Dean's List 2022, 2023", "icon": "award"}
-    ]
-}
 
-@app.route('/')
-def index():
-    return render_template('index.html', data=data)
-
-@app.route('/send-message', methods=['POST'])
-def send_message():
-    try:
-        message_data = request.json
-        # Here you would typically send an email or save to database
-        print(f"Message received: {message_data}")
-        return jsonify({"success": True, "message": "Message sent successfully!"})
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)})
-
-if __name__ == '__main__':
-    app.run(debug=True)
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set stats values
+            document.getElementById('projectCount').textContent = '3';
+            document.getElementById('experienceYears').textContent = '3+';
+            document.getElementById('publicationCount').textContent = '2';
+            document.getElementById('languagesCount').textContent = '4';
+        });
+    </script>
+</body>
+</html>
